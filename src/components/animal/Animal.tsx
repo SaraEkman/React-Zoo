@@ -65,13 +65,14 @@ export const Animal = () => {
   return (
     <article className="detalisArticle">
       <h1>{animal.name}</h1>
-      {animal.isFed && isHungry ? (
-        <h2>
-          {animal.name} är jättehungrig, blev matad för mer än 4 timmar sen! 😰
-        </h2>
-      ) : (
+      {animal.isFed === false && isHungry === false && (
         <h2>
           {animal.name} är hungrig, blev matad för mer än 3 timmar sen! 😢
+        </h2>
+      )}
+      {isHungry === true && (
+        <h2>
+          {animal.name} är jättehungrig, blev matad för mer än 4 timmar sen! 😰
         </h2>
       )}
       {animal.isFed === true && <h2>{animal.name} är mätt Nu 😊</h2>}
