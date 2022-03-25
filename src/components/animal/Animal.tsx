@@ -26,23 +26,23 @@ export const Animal = () => {
     let getLS = JSON.parse(localStorage.getItem('Animals') || '[]')
     // eslint-disable-next-line array-callback-return
     getLS.map((animal: IAnimal) => {
-        if (animal.id === theAnimalId) {
-          let LastFed = Math.floor(
-            (new Date().getTime() - new Date(animal.lastFed).getTime()) /
-            (1000 * 60 * 60)
-          )
-          if (LastFed >= 3) {
-            animal.isFed = false
-          }
-
-          if (LastFed >= 4) {
-            setIsHungry(true)
-          }
-          // eslint-disable-next-line react-hooks/exhaustive-deps
-          theAnimal = animal
-          setAnimal(theAnimal)
+      if (animal.id === theAnimalId) {
+        let LastFed = Math.floor(
+          (new Date().getTime() - new Date(animal.lastFed).getTime()) /
+            (1000 * 60 * 60),
+        )
+        if (LastFed >= 3) {
+          animal.isFed = false
         }
-      })
+
+        if (LastFed >= 4) {
+          setIsHungry(true)
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        theAnimal = animal
+        setAnimal(theAnimal)
+      }
+    })
   }, [])
 
   function feedme(thisAnimal: IAnimal) {
@@ -63,15 +63,18 @@ export const Animal = () => {
   }
 
   return (
-    <article className='detalisArticle'>
+    <article className="detalisArticle">
       <h1>{animal.name}</h1>
       {animal.isFed && isHungry ? (
         <h2>
+          {animal.name} är jättehungrig, blev matad för mer än 4 timmar sen! 😰
+        </h2>
+      ) : (
+        <h2>
           {animal.name} är hungrig, blev matad för mer än 3 timmar sen! 😢
         </h2>
-      ) : (<h2>{animal.name} är mätt Nu 😊</h2>)}
-
-      {isHungry === true && <h2> {animal.name} är jättehungrig, blev matad för mer än 4 timmar sen! 😰</h2>}
+      )}
+      {animal.isFed === true && <h2>{animal.name} är mätt Nu 😊</h2>}
       <img src={animal.imageUrl} width="100%" height="auto" alt="Animal" />
       <h3>latinNamn: {animal.latinName}</h3>
       <p>
@@ -80,19 +83,22 @@ export const Animal = () => {
       <h3>Medisin: {animal.medicine}</h3>
       <h3>Födelseår: {animal.yearOfBirth}</h3>
 
-      <div className='btnContent'>
-         {animal.isFed === false && (
-        <Button color="red"
-          onClick={() => {
-            feedme(animal)
-          }}
-        >
-          Mata {animal.name}
-        </Button>
-      )}
+      <div className="btnContent">
+        {animal.isFed === false && (
+          <Button
+            color="red"
+            onClick={() => {
+              feedme(animal)
+            }}
+          >
+            Mata {animal.name}
+          </Button>
+        )}
 
-      <Button><Link to="/">Start Sida</Link></Button>
-     </div>
+        <Button>
+          <Link to="/">Start Sida</Link>
+        </Button>
+      </div>
     </article>
   )
 }
