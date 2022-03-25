@@ -1,0 +1,69 @@
+.container {
+  width: 80%;
+  max-width: 1100px;
+  padding: 20px;
+  border-radius: 15px 4px 4px 15px;
+  border-left: 40px solid #d5d100;
+  background: #f4f4f4;
+  position: relative;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.container::before {
+  position: absolute;
+  top: 10px;
+  left: -34px;
+  content: '';
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Paw_%28Animal_Rights_symbol%29.svg/800px-Paw_%28Animal_Rights_symbol%29.svg.png');
+  background-size: 30px 30px;
+  width: 30px;
+  height: 30px;
+  transform: rotate(344deg);
+}
+
+.container article {
+  margin-bottom: 8px;
+}
+
+.searchContent {
+  position: relative;
+}
+
+.searchContent input {
+  padding: 0.5rem 3rem;
+  border-right: none;
+  border-radius: 4px;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.content h2 {
+  max-width: 400px;
+  opacity: 0.8;
+  text-align: left;
+  line-height: 30px;
+}
+
+.content h2 a {
+  text-decoration: none;
+  font-size: 23px;
+  color: rgb(87, 88, 14);
+  transition: 0.25s all ease-in-out;
+}
+.content h2 a:hover {
+  font-size: 24px;
+  transition: 0.25s all ease-in-out;
+  color: rgb(187, 156, 54);
+}
+
+.image {
+  width: auto;
+  height: 200px;
+  border-radius: 4px;
+}

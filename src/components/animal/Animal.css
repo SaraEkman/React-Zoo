@@ -1,0 +1,44 @@
+.detalisArticle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  max-width: 1100px;
+  padding: 20px;
+  border-radius: 15px 4px 4px 15px;
+  border-left: 40px solid #d5d100;
+  background: #f4f4f4;
+  position: relative;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.detalisArticle::before {
+  position: absolute;
+  top: 10px;
+  left: -34px;
+  content: '';
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Paw_%28Animal_Rights_symbol%29.svg/800px-Paw_%28Animal_Rights_symbol%29.svg.png');
+  background-size: 30px 30px;
+  width: 30px;
+  height: 30px;
+  transform: rotate(344deg);
+}
+
+img {
+  width: 50%;
+  height: 350;
+  border-radius: 4px;
+}
+p {
+  max-width: 400px;
+  opacity: 0.8;
+  text-align: left;
+  line-height: 30px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.btnContent {
+    display: flex;
+    gap: 20px;
+}
