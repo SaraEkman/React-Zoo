@@ -23,17 +23,17 @@ export const Animals = () => {
     let getLS: IAnimal[] = JSON.parse(localStorage.getItem('Animals') || '[]')
     setAnimalsFromLS(getLS)
     // eslint-disable-next-line array-callback-return
-    animalsFromLS.map((animal: IAnimal) => {
-      let LastFed = Math.floor(
-        (new Date().getTime() - new Date(animal.lastFed).getTime()) /
-          (1000 * 60 * 60),
-      )
-      if (LastFed >= 4) {
-        animal.isFed = false
-         localStorage.setItem('Animals', JSON.stringify(getLS))
-      }
-    })
   }, [])
+
+  animalsFromLS.map((animal: IAnimal) => {
+    let LastFed = Math.floor(
+      (new Date().getTime() - new Date(animal.lastFed).getTime()) /
+        (1000 * 60 * 60),
+    )
+    if (LastFed >= 4) {
+      animal.isFed = false
+    }
+  })
 
   let animalsLis = animalsFromLS.map((animal) => {
     return (
@@ -43,7 +43,8 @@ export const Animals = () => {
           <article>
             <Button primary>
               <Link to={'/' + animal.id}>
-                För mer än 4 timmar sen, har {animal.name} blivit matad!! 😰 Mata
+                För mer än 4 timmar sen, har {animal.name} blivit matad!! 😰
+                Mata
               </Link>
             </Button>
           </article>
