@@ -30,6 +30,7 @@ export const Animals = () => {
       )
       if (LastFed >= 4) {
         animal.isFed = false
+         localStorage.setItem('Animals', JSON.stringify(getLS))
       }
     })
   }, [])
